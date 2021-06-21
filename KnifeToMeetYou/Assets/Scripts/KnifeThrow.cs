@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class KnifeThrow : MonoBehaviour
 {
+    //[HideInInspector]
     //Variables
     public GameObject knife;
     public Transform spawnPoint;
     public float speed = 5f;
+    private Vector3 MousePos;
 
     bool launched;
 
 
     private void Start()
     {
+        Vector3 MousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
 
+        MousePos = Camera.main.ScreenToWorldPoint(MousePos);
     }
 
     
@@ -22,7 +26,7 @@ public class KnifeThrow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
             launched = true;
-     
+
     }
 
     private void FixedUpdate()
@@ -39,8 +43,8 @@ public class KnifeThrow : MonoBehaviour
         GameObject knifeInstance = Instantiate(knife, spawnPoint.position, knife.transform.rotation);
         knifeInstance.transform.rotation = Quaternion.LookRotation(-spawnPoint.forward);
         Rigidbody knifeRig = knifeInstance.GetComponent<Rigidbody>();
-        
 
+        Destroy(GameObject.Find("Knife(Clone)"), 1);
 
         knifeRig.AddForce(spawnPoint.forward * speed, ForceMode.Impulse);
         launched = false;
