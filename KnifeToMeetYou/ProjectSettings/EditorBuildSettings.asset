@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu Prefab.unity
+    guid: e855e6b82567ccb448acb318e94b032e
+  - enabled: 1
+    path: Assets/Scenes/KnifeToMeetYou2.unity
+    guid: 010765aac7d33614c8c6d34c12b0a46a
   m_configObjects: {}

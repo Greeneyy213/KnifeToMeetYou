@@ -6,25 +6,27 @@ public class KnifeThrow : MonoBehaviour
 {
     //[HideInInspector]
     //Variables
+    public float delay = 1f;
     public GameObject knife;
     public Transform spawnPoint;
     public float speed = 5f;
-    private Vector3 MousePos;
+    //private Vector3 MousePos;
 
     bool launched;
 
 
-    private void Start()
+    /*private void Start()
     {
-        Vector3 MousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        //MousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
 
-        MousePos = Camera.main.ScreenToWorldPoint(MousePos);
-    }
+        //MousePos = Camera.main.ScreenToWorldPoint(MousePos);
+    }*/
 
-    
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        delay -= Time.deltaTime;
+        if (delay <= 0 && Input.GetKeyDown(KeyCode.E))
             launched = true;
 
     }

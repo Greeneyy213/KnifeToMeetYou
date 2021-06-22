@@ -6,15 +6,9 @@ public class WheelRotation : MonoBehaviour
 {
 
 
-    void Start()
-    {
-
-    }
-
-
 
     void Update()
     {
-        transform.Rotate(0, 0, 1, Space.World);
+        transform.Rotate(0, 0, 90 * Time.deltaTime, Space.World);
     }
 }
